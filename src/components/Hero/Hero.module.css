@@ -1,0 +1,211 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-black);
+  overflow: hidden;
+}
+
+.gridBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.goldText {
+  color: var(--primary-gold);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-white);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.introduction {
+  font-size: 1.1rem;
+  color: var(--text-grey);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Floating Icons */
+.floatingIcons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  color: var(--primary-gold);
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.icon1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 8s;
+}
+
+.icon2 {
+  top: 25%;
+  right: 15%;
+  animation-delay: -1s;
+  animation-duration: 7s;
+}
+
+.icon3 {
+  top: 45%;
+  left: 8%;
+  animation-delay: -2s;
+  animation-duration: 9s;
+}
+
+.icon4 {
+  top: 35%;
+  right: 8%;
+  animation-delay: -3s;
+  animation-duration: 6s;
+}
+
+.icon5 {
+  top: 65%;
+  left: 12%;
+  animation-delay: -4s;
+  animation-duration: 8s;
+}
+
+.icon6 {
+  top: 55%;
+  right: 12%;
+  animation-delay: -5s;
+  animation-duration: 7s;
+}
+
+.icon7 {
+  top: 75%;
+  left: 20%;
+  animation-delay: -1.5s;
+  animation-duration: 9s;
+}
+
+.icon8 {
+  top: 80%;
+  right: 25%;
+  animation-delay: -2.5s;
+  animation-duration: 6s;
+}
+
+.icon9 {
+  top: 20%;
+  left: 25%;
+  animation-delay: -3.5s;
+  animation-duration: 8s;
+}
+
+.icon10 {
+  top: 70%;
+  right: 20%;
+  animation-delay: -4.5s;
+  animation-duration: 7s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-15px) rotate(3deg);
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .gridBackground {
+    background-size: 30px 30px;
+  }
+  
+  .content {
+    padding: 0 1rem;
+  }
+  
+  .icon {
+    width: 36px;
+    height: 36px;
+    opacity: 0.4;
+  }
+  
+  /* Reduce number of visible icons on mobile */
+  .icon3, .icon6, .icon9, .icon10 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon {
+    width: 28px;
+    height: 28px;
+    opacity: 0.3;
+  }
+  
+  /* Show even fewer icons on very small screens */
+  .icon4, .icon7, .icon8 {
+    display: none;
+  }
+}
