@@ -4,6 +4,7 @@ import styles from './Navbar.module.css';
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +44,7 @@ const Navbar: React.FC = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false); // Close mobile menu after navigation
     }
   };
 
@@ -54,14 +56,27 @@ const Navbar: React.FC = () => {
     link.click();
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <span className={styles.logoText}>EDIODIONG</span>
+          {/* Mobile Menu Toggle */}
+        <button 
+          className={styles.menuToggle}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+        </button>
+          <span className={styles.logoText}>BLEXGRAPHIX</span>
         </div>
         
-        <ul className={styles.navLinks}>
+        {/* Desktop Navigation */}
+        <ul className={`${styles.navLinks} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
           <li>
             <button 
               onClick={() => scrollToSection('hero')}
@@ -96,9 +111,10 @@ const Navbar: React.FC = () => {
           </li>
         </ul>
 
+        {/* Download CV Button */}
         <button 
           onClick={handleDownloadCV}
-          className={styles.downloadButton}
+          className={`${styles.downloadButton} ${isMobileMenuOpen ? styles.hideOnMobile : ''}`}
           aria-label="Download CV"
         >
           <svg className={styles.downloadIcon} viewBox="0 0 24 24" fill="currentColor">

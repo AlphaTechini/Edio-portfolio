@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
       
       <div className={styles.content}>
         <h1 className={styles.title}>
-          HI, IM <span className={styles.goldText}>EDIODIONG</span>
+          HELLO, IM <span className={styles.goldText}>BLEXGRAPIX</span>
         </h1>
         <p className={styles.introduction}>
           Welcome to my creative space where design meets innovation. 

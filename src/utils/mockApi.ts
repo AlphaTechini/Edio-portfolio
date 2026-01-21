@@ -2,8 +2,9 @@ export interface Project {
   id: string;
   title: string;
   imageUrl: string;
-  category: 'logo' | 'flier' | 'other';
-  description?: string;
+  category: 'logo' | 'flier' | 'banner';
+  description: string;
+  shortDescription: string;
 }
 
 // Mock project data simulating a 3rd party API
